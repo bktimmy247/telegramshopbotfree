@@ -1,112 +1,127 @@
-# Bot Bán Hàng Telegram 24/7 — Free Demo
+﻿# Bot BÃ¡n HÃ ng Telegram 24/7 â€” Free Demo
 
-Đây là bản **free/open-source demo** để học cách tạo một bot Telegram bán sản phẩm số tự động bằng AI Agent.
+ÄÃ¢y lÃ  báº£n demo mÃ£ nguá»“n má»Ÿ Ä‘á»ƒ há»c cÃ¡ch xÃ¢y dá»±ng má»™t bot Telegram bÃ¡n sáº£n pháº©m sá»‘ tá»± Ä‘á»™ng.
 
-> Mục tiêu của bản này: giúp người mới nhìn thấy flow thật — xem sản phẩm, nạp tiền demo, mua hàng, nhận key/link demo tự động.
+Má»¥c tiÃªu cá»§a project lÃ  minh há»a cÃ¡c thÃ nh pháº§n cÆ¡ báº£n cá»§a má»™t shop bot:
 
-## Demo có gì?
+- danh má»¥c sáº£n pháº©m,
+- vÃ­ ná»™i bá»™ demo,
+- Ä‘Æ¡n hÃ ng,
+- stock/license máº«u,
+- giao payload tá»± Ä‘á»™ng,
+- lÆ°u dá»¯ liá»‡u báº±ng SQLite.
 
-- Menu Telegram giống bản shop bot production.
-- Danh mục sản phẩm số.
-- Ví nội bộ demo.
-- Nạp tiền demo bằng nút bấm.
-- Mua sản phẩm bằng số dư demo.
-- Tự động giao payload/license demo.
-- Lưu users/products/stock/orders bằng SQLite.
-- Lệnh `/admin` xem thống kê cơ bản.
-- Các module production có biểu tượng 🔒 để người học thấy roadmap bản chạy thật.
+Project phÃ¹ há»£p cho má»¥c Ä‘Ã­ch há»c táº­p, nghiÃªn cá»©u, demo sáº£n pháº©m vÃ  lÃ m ná»n táº£ng Ä‘á»ƒ phÃ¡t triá»ƒn thÃªm.
 
-## Bản free KHÔNG có gì?
+## TÃ­nh nÄƒng trong báº£n demo
 
-Bản này cố ý để các phần production dưới dạng **module khóa 🔒**. Khi người dùng bấm vào, bot sẽ giải thích module đó làm được gì và CTA về từ khóa `BOT247`.
+- Menu Telegram báº±ng nÃºt báº¥m.
+- Danh má»¥c sáº£n pháº©m sá»‘.
+- VÃ­ demo.
+- Náº¡p tiá»n demo báº±ng nÃºt báº¥m.
+- Mua sáº£n pháº©m báº±ng sá»‘ dÆ° demo.
+- Tá»± Ä‘á»™ng giao payload/license demo.
+- LÆ°u users/products/stock/orders báº±ng SQLite.
+- Lá»‡nh `/admin` xem thá»‘ng kÃª cÆ¡ báº£n.
+- Má»™t sá»‘ module nÃ¢ng cao Ä‘Æ°á»£c hiá»ƒn thá»‹ á»Ÿ tráº¡ng thÃ¡i khÃ³a Ä‘á»ƒ minh há»a roadmap phÃ¡t triá»ƒn.
 
-Các module khóa gồm:
+## CÃ¡c module nÃ¢ng cao Ä‘ang khÃ³a
 
-- VietQR/SePay/Casso webhook nhận tiền thật.
-- Import stock/license hàng loạt.
-- Broadcast/segment khách hàng.
+CÃ¡c module dÆ°á»›i Ä‘Ã¢y chá»‰ lÃ  placeholder trong báº£n demo. Khi báº¥m vÃ o, bot sáº½ giáº£i thÃ­ch má»¥c Ä‘Ã­ch cá»§a module Ä‘á»ƒ ngÆ°á»i há»c hiá»ƒu kiáº¿n trÃºc tá»•ng thá»ƒ.
+
+- Thanh toÃ¡n VietQR/SePay/Casso.
+- Import stock/license hÃ ng loáº¡t.
+- Broadcast khÃ¡ch hÃ ng.
 - Dashboard doanh thu.
-- Domain/webhook bảo mật.
-- Deploy VPS chạy 24/7.
-- Backup/monitoring production.
+- Webhook báº£o máº­t.
+- Deploy 24/7.
+- Backup/monitoring.
 - Reseller/API.
-- Đa ngôn ngữ.
+- Äa ngÃ´n ngá»¯.
 
-Lưu ý: Không để nút chết. Nút khóa phải phản hồi rõ ràng để người dùng hiểu đây là giới hạn có chủ đích, không phải bot lỗi.
+CÃ¡c module nÃ y chÆ°a Ä‘Æ°á»£c triá»ƒn khai trong báº£n free demo.
 
-Các phần đó nằm trong bản workshop/mentoring **Bot Bán Hàng 24/7 bằng AI Agent**.
-
-## Cài đặt nhanh
+## CÃ i Ä‘áº·t nhanh
 
 ```bash
 npm install
 cp .env.example .env
 ```
 
-Sửa `.env`:
+Sá»­a `.env`:
 
 ```env
 BOT_TOKEN=token_botfather_cua_ban
 ADMIN_IDS=telegram_id_cua_ban
 ```
 
-Chạy bot:
+Cháº¡y bot:
 
 ```bash
 npm start
 ```
 
-Test core flow không cần Telegram token:
+Test core flow khÃ´ng cáº§n Telegram token:
 
 ```bash
 npm run smoke
 ```
 
-## Flow trải nghiệm
+## Flow tráº£i nghiá»‡m
 
-1. `/start` để mở menu.
-2. Bấm **Sản phẩm**.
-3. Chọn sản phẩm.
-4. Nếu thiếu số dư, bấm **Nạp demo**.
-5. Mua sản phẩm.
-6. Bot giao payload/license demo tự động.
-7. Admin dùng `/admin` xem số liệu cơ bản.
+1. Gá»­i `/start` Ä‘á»ƒ má»Ÿ menu.
+2. Báº¥m **Sáº£n pháº©m**.
+3. Chá»n sáº£n pháº©m.
+4. Náº¿u thiáº¿u sá»‘ dÆ°, báº¥m **Náº¡p demo**.
+5. Mua sáº£n pháº©m.
+6. Bot giao payload/license demo tá»± Ä‘á»™ng.
+7. Admin dÃ¹ng `/admin` xem sá»‘ liá»‡u cÆ¡ báº£n.
 
-## Gợi ý sản phẩm số phù hợp
+## Gá»£i Ã½ sáº£n pháº©m sá»‘ phÃ¹ há»£p
 
 - Ebook / PDF.
 - Template Notion/Canva/Prompt.
-- Link khóa học riêng tư.
-- License/key phần mềm tự sở hữu.
-- File tài liệu, checklist, script.
-- Gói tư vấn/booking lịch.
+- Link khÃ³a há»c riÃªng tÆ°.
+- License/key pháº§n má»m do báº¡n sá»Ÿ há»¯u.
+- File tÃ i liá»‡u, checklist, script.
+- GÃ³i tÆ° váº¥n/booking lá»‹ch.
 
-Không khuyến khích bán tài khoản crack/share hoặc sản phẩm vi phạm điều khoản nền tảng.
+KhÃ´ng khuyáº¿n khÃ­ch dÃ¹ng project Ä‘á»ƒ bÃ¡n tÃ i khoáº£n crack/share, sáº£n pháº©m vi pháº¡m báº£n quyá»n hoáº·c vi pháº¡m Ä‘iá»u khoáº£n ná»n táº£ng.
 
-## Muốn bản chạy thật 24/7?
+## Roadmap ká»¹ thuáº­t
 
-Bản triển khai thật cần thêm:
+Má»™t báº£n triá»ƒn khai Ä‘áº§y Ä‘á»§ cÃ³ thá»ƒ má»Ÿ rá»™ng thÃªm:
 
-- Tích hợp VietQR/SePay/Casso.
-- Webhook xác thực và chống trùng giao dịch.
-- Domain hoặc Cloudflare Tunnel.
-- VPS/PM2/systemd.
-- Admin nhập stock, ẩn sản phẩm, broadcast.
-- Backup SQLite/Postgres.
-- Cá nhân hóa theo ngành hàng.
+- Webhook thanh toÃ¡n tháº­t.
+- XÃ¡c thá»±c giao dá»‹ch vÃ  chá»‘ng xá»­ lÃ½ trÃ¹ng.
+- Admin dashboard.
+- Import/export dá»¯ liá»‡u.
+- Deploy VPS hoáº·c cloud.
+- Backup database.
+- Log vÃ  monitoring.
+- PhÃ¢n quyá»n admin/operator.
 
-Nếu muốn nhận checklist triển khai bản thật, inbox/comment: **BOT247**.
+## Cáº¥u trÃºc project
 
-## Định vị cho video/phễu
+```text
+src/
+  bot.js      # Telegram bot handlers
+  db.js       # SQLite schema + business logic
+  smoke.js    # Local smoke test
 
-Tiêu đề gợi ý:
 
-> Tôi open-source bot Telegram bán hàng tự động 24/7 — ai không biết code cũng có thể học cách vận hành bằng AI Agent
+.env.example
+README.md
+```
 
-CTA:
+## LÆ°u Ã½ báº£o máº­t
 
-> Muốn nhận bộ checklist + video setup miễn phí? Comment `BOT247`.
+- KhÃ´ng commit `.env`.
+- KhÃ´ng commit database tháº­t.
+- KhÃ´ng Ä‘Æ°a token bot lÃªn GitHub.
+- KhÃ´ng xá»­ lÃ½ thanh toÃ¡n tháº­t náº¿u chÆ°a cÃ³ xÃ¡c thá»±c webhook vÃ  idempotency.
 
 ---
 
-Bản demo này được thiết kế làm “chim mồi”: đủ để học và thử, nhưng vẫn để lại nhu cầu rõ ràng cho phần triển khai production.
+Báº£n demo nÃ y chá»‰ dÃ¹ng cho há»c táº­p vÃ  thá»­ nghiá»‡m. Náº¿u dÃ¹ng trong mÃ´i trÆ°á»ng tháº­t, cáº§n rÃ  soÃ¡t báº£o máº­t, thanh toÃ¡n, backup vÃ  váº­n hÃ nh 24/7.
+
