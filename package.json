@@ -1,0 +1,29 @@
+{
+  "name": "telegram-shop-bot-free",
+  "version": "0.1.0",
+  "description": "Free demo Telegram digital product shop bot for lead magnet",
+  "main": "src/bot.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node src/bot.js",
+    "smoke": "node src/smoke.js"
+  },
+  "keywords": [
+    "telegram",
+    "shop",
+    "bot",
+    "digital-products",
+    "lead-magnet",
+    "ai-agent"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^12.11.1",
+    "dotenv": "^17.4.2",
+    "telegraf": "^4.16.3"
+  }
+}
