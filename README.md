@@ -1,107 +1,107 @@
-# Bot Bán Hàng Telegram 24/7 - Free Demo
+# Telegram Shop Bot 24/7 - Free Demo
 
-Đây là bản demo mã nguồn mở để học cách xây dựng một bot Telegram bán sản phẩm số tự động.
+Day la ban demo ma nguon mo de hoc cach xay dung mot bot Telegram ban san pham so tu dong.
 
-Mục tiêu của project là minh họa các thành phần cơ bản của một shop bot:
+Muc tieu cua project la minh hoa cac thanh phan co ban cua mot shop bot:
 
-- danh mục sản phẩm,
-- ví nội bộ demo,
-- đơn hàng,
-- stock/license mẫu,
-- giao payload tự động,
-- lưu dữ liệu bằng SQLite.
+- danh muc san pham,
+- vi noi bo demo,
+- don hang,
+- stock/license mau,
+- giao payload tu dong,
+- luu du lieu bang SQLite.
 
-Project phù hợp cho mục đích học tập, nghiên cứu, demo sản phẩm và làm nền tảng để phát triển thêm.
+Project phu hop cho muc dich hoc tap, nghien cuu, demo san pham va lam nen tang de phat trien them.
 
-## Tính năng trong bản demo
+## Tinh nang trong ban demo
 
-- Menu Telegram bằng nút bấm.
-- Danh mục sản phẩm số.
-- Ví demo.
-- Nạp tiền demo bằng nút bấm.
-- Mua sản phẩm bằng số dư demo.
-- Tự động giao payload/license demo.
-- Lưu users/products/stock/orders bằng SQLite.
-- Lệnh `/admin` xem thống kê cơ bản.
-- Một số module nâng cao được hiển thị ở trạng thái khóa để minh họa roadmap phát triển.
+- Menu Telegram bang nut bam.
+- Danh muc san pham so.
+- Vi demo.
+- Nap tien demo bang nut bam.
+- Mua san pham bang so du demo.
+- Tu dong giao payload/license demo.
+- Luu users/products/stock/orders bang SQLite.
+- Lenh `/admin` xem thong ke co ban.
+- Mot so module nang cao duoc hien thi o trang thai khoa de minh hoa roadmap phat trien.
 
-## Các module nâng cao đang khóa
+## Cac module nang cao dang khoa
 
-Các module dưới đây chỉ là placeholder trong bản demo. Khi bấm vào, bot sẽ giải thích mục đích của module để người học hiểu kiến trúc tổng thể.
+Cac module duoi day chi la placeholder trong ban demo. Khi bam vao, bot se giai thich muc dich cua module de nguoi hoc hieu kien truc tong the.
 
-- Thanh toán VietQR/SePay/Casso.
-- Import stock/license hàng loạt.
-- Broadcast khách hàng.
+- Thanh toan VietQR/SePay/Casso.
+- Import stock/license hang loat.
+- Broadcast khach hang.
 - Dashboard doanh thu.
-- Webhook bảo mật.
+- Webhook bao mat.
 - Deploy 24/7.
 - Backup/monitoring.
 - Reseller/API.
-- Đa ngôn ngữ.
+- Da ngon ngu.
 
-Các module này chưa được triển khai trong bản free demo.
+Cac module nay chua duoc trien khai trong ban free demo.
 
-## Cài đặt nhanh
+## Cai dat nhanh
 
 ```bash
 npm install
 cp .env.example .env
 ```
 
-Sửa `.env`:
+Sua `.env`:
 
 ```env
 BOT_TOKEN=token_botfather_cua_ban
 ADMIN_IDS=telegram_id_cua_ban
 ```
 
-Chạy bot:
+Chay bot:
 
 ```bash
 npm start
 ```
 
-Test core flow không cần Telegram token:
+Test core flow khong can Telegram token:
 
 ```bash
 npm run smoke
 ```
 
-## Flow trải nghiệm
+## Flow trai nghiem
 
-1. Gửi `/start` để mở menu.
-2. Bấm **Sản phẩm**.
-3. Chọn sản phẩm.
-4. Nếu thiếu số dư, bấm **Nạp demo**.
-5. Mua sản phẩm.
-6. Bot giao payload/license demo tự động.
-7. Admin dùng `/admin` xem số liệu cơ bản.
+1. Gui `/start` de mo menu.
+2. Bam **San pham**.
+3. Chon san pham.
+4. Neu thieu so du, bam **Nap demo**.
+5. Mua san pham.
+6. Bot giao payload/license demo tu dong.
+7. Admin dung `/admin` xem so lieu co ban.
 
-## Gợi ý sản phẩm số phù hợp
+## Goi y san pham so phu hop
 
 - Ebook / PDF.
 - Template Notion/Canva/Prompt.
-- Link khóa học riêng tư.
-- License/key phần mềm do bạn sở hữu.
-- File tài liệu, checklist, script.
-- Gói tư vấn/booking lịch.
+- Link khoa hoc rieng tu.
+- License/key phan mem do ban so huu.
+- File tai lieu, checklist, script.
+- Goi tu van/booking lich.
 
-Không khuyến khích dùng project để bán tài khoản crack/share, sản phẩm vi phạm bản quyền hoặc vi phạm điều khoản nền tảng.
+Khong khuyen khich dung project de ban tai khoan crack/share, san pham vi pham ban quyen hoac vi pham dieu khoan nen tang.
 
-## Roadmap kỹ thuật
+## Roadmap ky thuat
 
-Một bản triển khai đầy đủ có thể mở rộng thêm:
+Mot ban trien khai day du co the mo rong them:
 
-- Webhook thanh toán thật.
-- Xác thực giao dịch và chống xử lý trùng.
+- Webhook thanh toan that.
+- Xac thuc giao dich va chong xu ly trung.
 - Admin dashboard.
-- Import/export dữ liệu.
-- Deploy VPS hoặc cloud.
+- Import/export du lieu.
+- Deploy VPS hoac cloud.
 - Backup database.
-- Log và monitoring.
-- Phân quyền admin/operator.
+- Log va monitoring.
+- Phan quyen admin/operator.
 
-## Cấu trúc project
+## Cau truc project
 
 ```text
 src/
@@ -113,13 +113,13 @@ src/
 README.md
 ```
 
-## Lưu ý bảo mật
+## Luu y bao mat
 
-- Không commit `.env`.
-- Không commit database thật.
-- Không đưa token bot lên GitHub.
-- Không xử lý thanh toán thật nếu chưa có xác thực webhook và idempotency.
+- Khong commit `.env`.
+- Khong commit database that.
+- Khong dua token bot len GitHub.
+- Khong xu ly thanh toan that neu chua co xac thuc webhook va idempotency.
 
 ---
 
-Bản demo này chỉ dùng cho học tập và thử nghiệm. Nếu dùng trong môi trường thật, cần rà soát bảo mật, thanh toán, backup và vận hành 24/7.
+Ban demo nay chi dung cho hoc tap va thu nghiem. Neu dung trong moi truong that, can ra soat bao mat, thanh toan, backup va van hanh 24/7.
