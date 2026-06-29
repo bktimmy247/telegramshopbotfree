@@ -11,49 +11,6 @@ function money(v) { return new Intl.NumberFormat('vi-VN').format(v) + 'đ'; }
 function isAdmin(ctx) { return adminIds.includes(String(ctx.from?.id)); }
 
 
-const LOCKED_MODULES = {
-  vietqr: {
-    title: '🏦 Thanh toán VietQR/SePay/Casso',
-    benefit: 'Tự nhận chuyển khoản, match mã NAP, cộng tiền vào ví và chống cộng trùng giao dịch.',
-    paid: 'Webhook bảo mật + idempotency + log transaction.'
-  },
-  import_stock: {
-    title: '📥 Import stock hàng loạt',
-    benefit: 'Dán/import hàng trăm key/link/license một lần thay vì nhập thủ công từng dòng.',
-    paid: 'Admin flow nhập stock, kiểm tra trùng, thống kê tồn kho.'
-  },
-  broadcast: {
-    title: '📣 Broadcast khách hàng',
-    benefit: 'Gửi thông báo sản phẩm mới/ưu đãi tới khách đã mua hoặc từng quan tâm.',
-    paid: 'Lọc tệp, chống spam, lịch gửi và đo phản hồi.'
-  },
-  dashboard: {
-    title: '📊 Dashboard doanh thu',
-    benefit: 'Xem doanh thu, đơn hàng, sản phẩm bán chạy, số dư khách hàng.',
-    paid: 'Dashboard web/admin bảo mật, export báo cáo.'
-  },
-  deploy: {
-    title: '🚀 Deploy 24/7',
-    benefit: 'Đưa bot lên VPS/domain để chạy liên tục, không phụ thuộc máy cá nhân.',
-    paid: 'PM2/systemd, Cloudflare Tunnel/domain, log, backup, restart tự động.'
-  },
-  security: {
-    title: '🔐 Bảo mật webhook',
-    benefit: 'Chặn webhook giả, bảo vệ token/API key và tránh mất tiền vì xử lý sai giao dịch.',
-    paid: 'Verify signature/API key, env secret, rate limit, backup.'
-  },
-  reseller: {
-    title: '🤝 Reseller/API',
-    benefit: 'Cho cộng tác viên bán lại hoặc hệ thống khác gọi API tạo đơn/giao hàng.',
-    paid: 'API key riêng, hạn mức, log reseller, chia hoa hồng.'
-  },
-  language: {
-    title: '🌐 Đa ngôn ngữ',
-    benefit: 'Đổi tiếng Việt/Anh hoặc cá nhân hóa lời nhắn theo từng tệp khách.',
-    paid: 'i18n, template message và cấu hình theo ngành.'
-  }
-};
-
 function mainMenu() {
   return Markup.inlineKeyboard([
     [Markup.button.callback('🎁 Sản phẩm', 'products'), Markup.button.callback('💰 Nạp demo', 'topup_demo')],
@@ -62,7 +19,6 @@ function mainMenu() {
     [Markup.button.callback('📣 Broadcast 🔒', 'locked:broadcast'), Markup.button.callback('📊 Dashboard 🔒', 'locked:dashboard')],
     [Markup.button.callback('🚀 Deploy 24/7 🔒', 'locked:deploy'), Markup.button.callback('🔐 Bảo mật 🔒', 'locked:security')],
     [Markup.button.callback('🤝 Reseller/API 🔒', 'locked:reseller'), Markup.button.callback('🌐 Đa ngôn ngữ 🔒', 'locked:language')],
-    [Markup.button.callback('💬 Mở khóa bản chạy thật', 'paid_offer')],
   ]);
 }
 
@@ -73,7 +29,7 @@ function productButtons() {
 }
 
 function accountText(user) {
-  return `👤 Tài khoản demo\n\nID: ${user.telegram_id}\nSố dư demo: ${money(user.balance)}\n\nBản free dùng ví demo để học flow. Muốn nhận tiền thật cần tích hợp VietQR/SePay/Casso + webhook bảo mật.`;
+  return `👤 Tài khoản demo\n\nID: ${user.telegram_id}\nSố dư demo: ${money(user.balance)}\n\nBản demo dùng ví mô phỏng để học flow đặt hàng và giao payload tự động.`;
 }
 
 function register(bot) {
@@ -115,7 +71,7 @@ function register(bot) {
     const result = buyProduct(ctx.from.id, ctx.match[1]);
     if (!result.ok) return ctx.answerCbQuery(result.error, { show_alert: true });
     await ctx.editMessageText(
-      `✅ Mua thành công!\n\nMã đơn: ${result.code}\nSản phẩm: ${result.product.name}\nPayload demo:\n\n\`${result.payload}\`\n\nSố dư còn lại: ${money(result.balance)}\n\nĐây là bản demo. Bản chạy thật sẽ giao file/key/link thật và ghi log đơn hàng đầy đủ.`,
+      `✅ Mua thành công!\n\nMã đơn: ${result.code}\nSản phẩm: ${result.product.name}\nPayload demo:\n\n\`${result.payload}\`\n\nSố dư còn lại: ${money(result.balance)}\n\nĐây là bản demo minh họa flow giao payload tự động.`, 
       { parse_mode: 'Markdown', ...mainMenu() }
     );
   });
@@ -123,7 +79,7 @@ function register(bot) {
   bot.action('topup_demo', async (ctx) => {
     const u = ensureUser(ctx.from);
     const updated = addDemoBalance(u.telegram_id, 300000);
-    await ctx.editMessageText(`💰 Đã nạp demo 300.000đ\n\nSố dư hiện tại: ${money(updated.balance)}\n\nBản free giả lập nạp tiền. Bản paid sẽ dùng VietQR/SePay/Casso webhook.`, mainMenu());
+    await ctx.editMessageText(`💰 Đã nạp demo 300.000đ\n\nSố dư hiện tại: ${money(updated.balance)}\n\nĐây là giao dịch mô phỏng trong bản demo.`, mainMenu());
   });
 
   bot.action('account', async (ctx) => {
@@ -132,44 +88,17 @@ function register(bot) {
   });
 
   bot.action('orders_info', async (ctx) => {
-    await ctx.editMessageText('📦 Bản free lưu đơn demo trong SQLite.\n\nTrong bản paid có thể thêm:\n- Trang admin xem đơn\n- Export Excel\n- Broadcast khách đã mua\n- Theo dõi doanh thu theo ngày', mainMenu());
+    await ctx.editMessageText('📦 Bản demo lưu đơn hàng trong SQLite.\n\nCác module thống kê/export/broadcast đang ở trạng thái khóa trong bản demo.', mainMenu());
   });
 
   bot.action(/locked:(.+)/, async (ctx) => {
-    const key = ctx.match[1];
-    const mod = LOCKED_MODULES[key];
-    if (!mod) return ctx.answerCbQuery('Module đang khóa trong bản free', { show_alert: true });
-    await ctx.editMessageText(
-      `🔒 ${mod.title}
-
-Module này được khóa trong bản free demo.
-
-Trong bản chạy thật, nó giúp:
-${mod.benefit}
-
-Phần triển khai cần học/thực hành:
-${mod.paid}
-
-Muốn nhận checklist mở module này?
-Comment/inbox: BOT247`,
-      Markup.inlineKeyboard([
-        [Markup.button.callback('🚀 Muốn bản chạy thật', 'paid_offer')],
-        [Markup.button.callback('⬅️ Về menu', 'menu')],
-      ])
-    );
-  });
-
-  bot.action('paid_offer', async (ctx) => {
-    await ctx.editMessageText(
-      '🚀 Muốn bản chạy thật 24/7?\n\nBản triển khai thật sẽ có:\n✅ VietQR/SePay/Casso tự cộng tiền\n✅ Webhook bảo mật, chống trùng giao dịch\n✅ Admin thêm sản phẩm/stock\n✅ Deploy VPS/Cloudflare Tunnel\n✅ Backup dữ liệu\n✅ Cá nhân hóa theo ngành hàng\n\nInbox “BOT247” để nhận checklist và lộ trình triển khai.',
-      mainMenu()
-    );
+    await ctx.answerCbQuery('T\u00ednh n\u0103ng ch\u01b0a m\u1edf kho\u00e1.', { show_alert: true });
   });
 
   bot.command('admin', async (ctx) => {
     if (!isAdmin(ctx)) return ctx.reply('Bạn không phải admin demo.');
     const s = stats();
-    await ctx.reply(`📊 Admin demo\n\nUsers: ${s.users}\nProducts: ${s.products}\nOrders: ${s.orders}\nRevenue demo: ${money(s.revenueDemo)}\n\nBản free chỉ có stats cơ bản. Bản paid sẽ có dashboard/admin flow nâng cao.`);
+    await ctx.reply(`📊 Admin demo\n\nUsers: ${s.users}\nProducts: ${s.products}\nOrders: ${s.orders}\nRevenue demo: ${money(s.revenueDemo)}\n\nBản demo chỉ có thống kê cơ bản.`);
   });
 }
 
