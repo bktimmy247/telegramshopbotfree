@@ -6,7 +6,7 @@
 
 ## Demo có gì?
 
-- Menu Telegram đơn giản.
+- Menu Telegram giống bản shop bot production.
 - Danh mục sản phẩm số.
 - Ví nội bộ demo.
 - Nạp tiền demo bằng nút bấm.
@@ -14,18 +14,25 @@
 - Tự động giao payload/license demo.
 - Lưu users/products/stock/orders bằng SQLite.
 - Lệnh `/admin` xem thống kê cơ bản.
+- Các module production có biểu tượng 🔒 để người học thấy roadmap bản chạy thật.
 
 ## Bản free KHÔNG có gì?
 
-Bản này cố ý chưa mở các phần production sau:
+Bản này cố ý để các phần production dưới dạng **module khóa 🔒**. Khi người dùng bấm vào, bot sẽ giải thích module đó làm được gì và CTA về từ khóa `BOT247`.
+
+Các module khóa gồm:
 
 - VietQR/SePay/Casso webhook nhận tiền thật.
+- Import stock/license hàng loạt.
+- Broadcast/segment khách hàng.
+- Dashboard doanh thu.
 - Domain/webhook bảo mật.
 - Deploy VPS chạy 24/7.
-- Admin dashboard nâng cao.
-- Import stock hàng loạt.
-- Broadcast/segment khách hàng.
 - Backup/monitoring production.
+- Reseller/API.
+- Đa ngôn ngữ.
+
+Lưu ý: Không để nút chết. Nút khóa phải phản hồi rõ ràng để người dùng hiểu đây là giới hạn có chủ đích, không phải bot lỗi.
 
 Các phần đó nằm trong bản workshop/mentoring **Bot Bán Hàng 24/7 bằng AI Agent**.
 
