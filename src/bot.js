@@ -15,10 +15,10 @@ function mainMenu() {
   return Markup.inlineKeyboard([
     [Markup.button.callback('🎁 Sản phẩm', 'products'), Markup.button.callback('💰 Nạp demo', 'topup_demo')],
     [Markup.button.callback('👤 Tài khoản', 'account'), Markup.button.callback('📦 Đơn demo', 'orders_info')],
-    [Markup.button.callback('🏦 VietQR tự động 🔒', 'locked:vietqr'), Markup.button.callback('📥 Import stock 🔒', 'locked:import_stock')],
-    [Markup.button.callback('📣 Broadcast 🔒', 'locked:broadcast'), Markup.button.callback('📊 Dashboard 🔒', 'locked:dashboard')],
-    [Markup.button.callback('🚀 Deploy 24/7 🔒', 'locked:deploy'), Markup.button.callback('🔐 Bảo mật 🔒', 'locked:security')],
-    [Markup.button.callback('🤝 Reseller/API 🔒', 'locked:reseller'), Markup.button.callback('🌐 Đa ngôn ngữ 🔒', 'locked:language')],
+    [Markup.button.callback('🏦 VietQR tự động', 'locked:vietqr'), Markup.button.callback('📥 Import stock', 'locked:import_stock')],
+    [Markup.button.callback('📣 Broadcast', 'locked:broadcast'), Markup.button.callback('📊 Dashboard', 'locked:dashboard')],
+    [Markup.button.callback('🚀 Deploy 24/7', 'locked:deploy'), Markup.button.callback('🔐 Bảo mật', 'locked:security')],
+    [Markup.button.callback('🤝 Reseller/API', 'locked:reseller'), Markup.button.callback('🌐 Đa ngôn ngữ', 'locked:language')],
   ]);
 }
 
