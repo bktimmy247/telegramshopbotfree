@@ -1,107 +1,107 @@
-﻿# Bot BÃ¡n HÃ ng Telegram 24/7 â€” Free Demo
+# Bot Bán Hàng Telegram 24/7 - Free Demo
 
-ÄÃ¢y lÃ  báº£n demo mÃ£ nguá»“n má»Ÿ Ä‘á»ƒ há»c cÃ¡ch xÃ¢y dá»±ng má»™t bot Telegram bÃ¡n sáº£n pháº©m sá»‘ tá»± Ä‘á»™ng.
+Đây là bản demo mã nguồn mở để học cách xây dựng một bot Telegram bán sản phẩm số tự động.
 
-Má»¥c tiÃªu cá»§a project lÃ  minh há»a cÃ¡c thÃ nh pháº§n cÆ¡ báº£n cá»§a má»™t shop bot:
+Mục tiêu của project là minh họa các thành phần cơ bản của một shop bot:
 
-- danh má»¥c sáº£n pháº©m,
-- vÃ­ ná»™i bá»™ demo,
-- Ä‘Æ¡n hÃ ng,
-- stock/license máº«u,
-- giao payload tá»± Ä‘á»™ng,
-- lÆ°u dá»¯ liá»‡u báº±ng SQLite.
+- danh mục sản phẩm,
+- ví nội bộ demo,
+- đơn hàng,
+- stock/license mẫu,
+- giao payload tự động,
+- lưu dữ liệu bằng SQLite.
 
-Project phÃ¹ há»£p cho má»¥c Ä‘Ã­ch há»c táº­p, nghiÃªn cá»©u, demo sáº£n pháº©m vÃ  lÃ m ná»n táº£ng Ä‘á»ƒ phÃ¡t triá»ƒn thÃªm.
+Project phù hợp cho mục đích học tập, nghiên cứu, demo sản phẩm và làm nền tảng để phát triển thêm.
 
-## TÃ­nh nÄƒng trong báº£n demo
+## Tính năng trong bản demo
 
-- Menu Telegram báº±ng nÃºt báº¥m.
-- Danh má»¥c sáº£n pháº©m sá»‘.
-- VÃ­ demo.
-- Náº¡p tiá»n demo báº±ng nÃºt báº¥m.
-- Mua sáº£n pháº©m báº±ng sá»‘ dÆ° demo.
-- Tá»± Ä‘á»™ng giao payload/license demo.
-- LÆ°u users/products/stock/orders báº±ng SQLite.
-- Lá»‡nh `/admin` xem thá»‘ng kÃª cÆ¡ báº£n.
-- Má»™t sá»‘ module nÃ¢ng cao Ä‘Æ°á»£c hiá»ƒn thá»‹ á»Ÿ tráº¡ng thÃ¡i khÃ³a Ä‘á»ƒ minh há»a roadmap phÃ¡t triá»ƒn.
+- Menu Telegram bằng nút bấm.
+- Danh mục sản phẩm số.
+- Ví demo.
+- Nạp tiền demo bằng nút bấm.
+- Mua sản phẩm bằng số dư demo.
+- Tự động giao payload/license demo.
+- Lưu users/products/stock/orders bằng SQLite.
+- Lệnh `/admin` xem thống kê cơ bản.
+- Một số module nâng cao được hiển thị ở trạng thái khóa để minh họa roadmap phát triển.
 
-## CÃ¡c module nÃ¢ng cao Ä‘ang khÃ³a
+## Các module nâng cao đang khóa
 
-CÃ¡c module dÆ°á»›i Ä‘Ã¢y chá»‰ lÃ  placeholder trong báº£n demo. Khi báº¥m vÃ o, bot sáº½ giáº£i thÃ­ch má»¥c Ä‘Ã­ch cá»§a module Ä‘á»ƒ ngÆ°á»i há»c hiá»ƒu kiáº¿n trÃºc tá»•ng thá»ƒ.
+Các module dưới đây chỉ là placeholder trong bản demo. Khi bấm vào, bot sẽ giải thích mục đích của module để người học hiểu kiến trúc tổng thể.
 
-- Thanh toÃ¡n VietQR/SePay/Casso.
-- Import stock/license hÃ ng loáº¡t.
-- Broadcast khÃ¡ch hÃ ng.
+- Thanh toán VietQR/SePay/Casso.
+- Import stock/license hàng loạt.
+- Broadcast khách hàng.
 - Dashboard doanh thu.
-- Webhook báº£o máº­t.
+- Webhook bảo mật.
 - Deploy 24/7.
 - Backup/monitoring.
 - Reseller/API.
-- Äa ngÃ´n ngá»¯.
+- Đa ngôn ngữ.
 
-CÃ¡c module nÃ y chÆ°a Ä‘Æ°á»£c triá»ƒn khai trong báº£n free demo.
+Các module này chưa được triển khai trong bản free demo.
 
-## CÃ i Ä‘áº·t nhanh
+## Cài đặt nhanh
 
 ```bash
 npm install
 cp .env.example .env
 ```
 
-Sá»­a `.env`:
+Sửa `.env`:
 
 ```env
 BOT_TOKEN=token_botfather_cua_ban
 ADMIN_IDS=telegram_id_cua_ban
 ```
 
-Cháº¡y bot:
+Chạy bot:
 
 ```bash
 npm start
 ```
 
-Test core flow khÃ´ng cáº§n Telegram token:
+Test core flow không cần Telegram token:
 
 ```bash
 npm run smoke
 ```
 
-## Flow tráº£i nghiá»‡m
+## Flow trải nghiệm
 
-1. Gá»­i `/start` Ä‘á»ƒ má»Ÿ menu.
-2. Báº¥m **Sáº£n pháº©m**.
-3. Chá»n sáº£n pháº©m.
-4. Náº¿u thiáº¿u sá»‘ dÆ°, báº¥m **Náº¡p demo**.
-5. Mua sáº£n pháº©m.
-6. Bot giao payload/license demo tá»± Ä‘á»™ng.
-7. Admin dÃ¹ng `/admin` xem sá»‘ liá»‡u cÆ¡ báº£n.
+1. Gửi `/start` để mở menu.
+2. Bấm **Sản phẩm**.
+3. Chọn sản phẩm.
+4. Nếu thiếu số dư, bấm **Nạp demo**.
+5. Mua sản phẩm.
+6. Bot giao payload/license demo tự động.
+7. Admin dùng `/admin` xem số liệu cơ bản.
 
-## Gá»£i Ã½ sáº£n pháº©m sá»‘ phÃ¹ há»£p
+## Gợi ý sản phẩm số phù hợp
 
 - Ebook / PDF.
 - Template Notion/Canva/Prompt.
-- Link khÃ³a há»c riÃªng tÆ°.
-- License/key pháº§n má»m do báº¡n sá»Ÿ há»¯u.
-- File tÃ i liá»‡u, checklist, script.
-- GÃ³i tÆ° váº¥n/booking lá»‹ch.
+- Link khóa học riêng tư.
+- License/key phần mềm do bạn sở hữu.
+- File tài liệu, checklist, script.
+- Gói tư vấn/booking lịch.
 
-KhÃ´ng khuyáº¿n khÃ­ch dÃ¹ng project Ä‘á»ƒ bÃ¡n tÃ i khoáº£n crack/share, sáº£n pháº©m vi pháº¡m báº£n quyá»n hoáº·c vi pháº¡m Ä‘iá»u khoáº£n ná»n táº£ng.
+Không khuyến khích dùng project để bán tài khoản crack/share, sản phẩm vi phạm bản quyền hoặc vi phạm điều khoản nền tảng.
 
-## Roadmap ká»¹ thuáº­t
+## Roadmap kỹ thuật
 
-Má»™t báº£n triá»ƒn khai Ä‘áº§y Ä‘á»§ cÃ³ thá»ƒ má»Ÿ rá»™ng thÃªm:
+Một bản triển khai đầy đủ có thể mở rộng thêm:
 
-- Webhook thanh toÃ¡n tháº­t.
-- XÃ¡c thá»±c giao dá»‹ch vÃ  chá»‘ng xá»­ lÃ½ trÃ¹ng.
+- Webhook thanh toán thật.
+- Xác thực giao dịch và chống xử lý trùng.
 - Admin dashboard.
-- Import/export dá»¯ liá»‡u.
-- Deploy VPS hoáº·c cloud.
+- Import/export dữ liệu.
+- Deploy VPS hoặc cloud.
 - Backup database.
-- Log vÃ  monitoring.
-- PhÃ¢n quyá»n admin/operator.
+- Log và monitoring.
+- Phân quyền admin/operator.
 
-## Cáº¥u trÃºc project
+## Cấu trúc project
 
 ```text
 src/
@@ -109,19 +109,17 @@ src/
   db.js       # SQLite schema + business logic
   smoke.js    # Local smoke test
 
-
 .env.example
 README.md
 ```
 
-## LÆ°u Ã½ báº£o máº­t
+## Lưu ý bảo mật
 
-- KhÃ´ng commit `.env`.
-- KhÃ´ng commit database tháº­t.
-- KhÃ´ng Ä‘Æ°a token bot lÃªn GitHub.
-- KhÃ´ng xá»­ lÃ½ thanh toÃ¡n tháº­t náº¿u chÆ°a cÃ³ xÃ¡c thá»±c webhook vÃ  idempotency.
+- Không commit `.env`.
+- Không commit database thật.
+- Không đưa token bot lên GitHub.
+- Không xử lý thanh toán thật nếu chưa có xác thực webhook và idempotency.
 
 ---
 
-Báº£n demo nÃ y chá»‰ dÃ¹ng cho há»c táº­p vÃ  thá»­ nghiá»‡m. Náº¿u dÃ¹ng trong mÃ´i trÆ°á»ng tháº­t, cáº§n rÃ  soÃ¡t báº£o máº­t, thanh toÃ¡n, backup vÃ  váº­n hÃ nh 24/7.
-
+Bản demo này chỉ dùng cho học tập và thử nghiệm. Nếu dùng trong môi trường thật, cần rà soát bảo mật, thanh toán, backup và vận hành 24/7.
